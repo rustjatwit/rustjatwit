@@ -1,0 +1,32 @@
+package edu.wit.cs.comp1000;
+import java.util.Scanner;
+
+// TODO: document this class
+public class PA1a {
+
+	// TODO: document this function
+
+		// TODO: write your code here
+		public static void main(String[] args) {
+			Scanner input = new Scanner(System.in);
+			int yards; //declares variable "yards"
+			int feet; //declares variable "feet"
+			int inches; //declares variable "inches
+			System.out.printf("Enter the number of yards: ");
+				//asks user for yard number input
+			yards = input.nextInt() * 36;
+				//defines "yards" as the user yard input * 36
+			System.out.printf("Enter the number of feet: ");
+				//asks user for foot number input
+			feet = input.nextInt() * 12;
+				//defines "feet" as the user feet input *12
+			System.out.printf("Enter the number of inches: ");
+				//asks user for inch number input
+			inches = input.nextInt();
+				//defines "inches" as the user inch input
+			int total = yards + feet + inches;
+			// declares and defines "total" variable by adding the other variables
+			System.out.printf("Total inches: %d" , total);
+			//total variable is total inches
+		}
+	}
