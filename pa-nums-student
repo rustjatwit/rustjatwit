@@ -1,0 +1,146 @@
+//PA2a
+
+package edu.wit.cs.comp1000;
+import java.util.Scanner;
+
+// TODO: document this class
+public class PA2a {
+
+	// TODO: document this function
+	public static void main(String[] args){
+		// TODO: write your code here
+		//Collects 5 whole numbers and save them as variables
+		Scanner input = new Scanner(System.in);
+		System.out.printf("Enter first whole number: ");
+		int a1 = input.nextInt();
+		System.out.printf("Enter second whole number: ");
+		int b2 = input.nextInt();
+		System.out.printf("Enter third whole number: ");
+		int c3 = input.nextInt();
+		System.out.printf("Enter fourth whole number: ");
+		int d4 = input.nextInt();
+		System.out.printf("Enter fifth whole number: ");
+		int e5 = input.nextInt();
+		
+		//sum of all five numbers
+		int firstSum = a1+b2+c3+d4+e5;
+		System.out.printf("%nSum of all five numbers: %d%n", firstSum);	
+		
+		//collecting variables for the sums and averages
+		int sumPos = 0;
+		int sumNeg = 0;
+		double avgPos = 0;
+		double avgNeg = 0;
+		
+		//when a variable is greater than 0 then:
+		//1: add variable value to +sum variable 2: +1 to +average variable
+		//when a variable is less than or = 0 then:
+		//1: add variable value to -sum variable 2: +1 to +average variable
+		if (a1>0) {
+			sumPos=sumPos + a1;
+			avgPos=avgPos + 1; }
+		else {
+			sumNeg=sumNeg + a1;
+			avgNeg=avgNeg + 1;}
+		if (b2>0) {
+			sumPos=sumPos + b2;
+			avgPos=avgPos + 1; }
+		else {
+			sumNeg=sumNeg + b2;
+			avgNeg=avgNeg + 1; }
+		if (c3>0) {
+			sumPos=sumPos + c3;
+			avgPos=avgPos + 1; }
+		else {
+			sumNeg=sumNeg +c3;
+			avgNeg=avgNeg + 1; }
+		if (d4>0) {
+			sumPos=sumPos + d4;
+			avgPos=avgPos + 1; }	
+		else {
+			sumNeg=sumNeg + d4;
+			avgNeg=avgNeg + 1; }
+		if (e5>0) {
+			sumPos=sumPos + e5;
+			avgPos=avgPos + 1; }
+		else {
+			sumNeg=sumNeg + e5;
+			avgNeg=avgNeg + 1; }
+		
+		//Calculating averages
+		avgPos = sumPos / avgPos;
+		avgNeg = sumNeg / avgNeg;
+	
+		//Outputs positive and negative sums as whole numbers
+	System.out.printf("Sum of all positive numbers: %d%n", sumPos);
+	System.out.printf("Sum of all non-positive numbers: %d%n", sumNeg);
+	
+	//defines averages as doubles and calcs the average of all numbers
+	double firstAvg = firstSum/5;
+	
+	//Outputs total, positive, and negative averages with 2 decimal places (with doubles)
+	System.out.printf("Average of all numbers: %.2f%n", firstAvg);
+	System.out.printf("Average of all positive numbers: %.2f%n", avgPos);
+	System.out.printf("Average of all non-positive numbers: %.2f%n", avgNeg);
+
+        }
+	}
+
+
+//PA2b
+
+package edu.wit.cs.comp1000;
+import java.util.Scanner;
+
+// TODO: document this class - class name: PA2b
+public class PA2b {
+
+	// TODO: document this function
+	public static void main(String[] args) {
+		// TODO: write your code here
+		Scanner input = new Scanner(System.in);
+		System.out.printf("Calculating ax^2+bx=c%n");
+		System.out.printf("Enter value a: ");
+		int a = input.nextInt();
+		System.out.printf("Enter value b: ");
+		int b = input.nextInt();
+		System.out.printf("Enter value c: ");
+		int c = input.nextInt();
+		System.out.printf("%n");
+		
+		// calculating d=(b^2)-4ac
+		int d=((b*b)-(4*a*c));
+		
+		//if d<0 then roots are imaginary
+		//if d is 0 then there is 1 root: calculated through -b/2a
+		//if d>0 then squareroot d, then put that number in both +- the rest of the quadratic formula
+		if (d<0) {
+			System.out.printf("roots: imaginary%ncannot calculate");
+		}
+		if (d==0) {
+			System.out.printf("root: d= -b/2a %n");
+			double d0 = ((-b)/(2*a));
+			System.out.printf("root: %.2f ",d0);			
+		}
+		if (d>1) {
+			double square = Math.sqrt(d);
+			double root1 = ((-b + square)/(2*a));
+			double root2 = ((-b - square)/(2*a));
+			
+			//outputs the 2 roots in order from least to greatest value
+			if (root1<root2) {
+				System.out.printf("roots: %.2f, %.2f", root1, root2);
+			}
+			if (root1>root2 ) {
+				System.out.printf("roots: %.2f, %.2f", root2, root1);
+			}
+			//each variable d option has their own output system:
+			//d<0 then output "roots: imaginary"
+			//d=0 then output the one root option
+			//d>0 the output the two roots in order of least, great
+			
+		} 
+
+	}
+
+}
