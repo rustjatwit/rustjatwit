@@ -1,3 +1,5 @@
+//PA1a
+
 package edu.wit.cs.comp1000;
 import java.util.Scanner;
 
@@ -30,3 +32,68 @@ public class PA1a {
 			//total variable is total inches
 		}
 	}
+
+
+//PA1b
+
+package edu.wit.cs.comp1000;
+import java.util.Scanner;
+
+// TODO: document this class
+public class PA1b {
+
+	// TODO: document this function
+
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+	
+		System.out.printf("Enter the number of inches: ");
+		int total = input.nextInt();
+			//defines user input as "total"
+		System.out.printf("Number of yards: %d ", total / 36);
+			//divides "total" into greatest number of yards and outputs whole yard number
+		int yards = (total % 36);
+			//int yards is the remainder of "total"/36
+		int feet = yards / 12;
+			//int feet is the yards remainder / 12
+		int inches = yards % 12;
+			//int inches is the remainder of "yards"/12
+		System.out.printf("Number of feet: %d ", feet);
+			//outputs number calculated from int feet
+		System.out.printf("Number of inches: %d ", inches);
+			//outputs number calculated from int inches
+	
+	}
+}
+
+
+//PA1b_v2
+
+package edu.wit.cs.comp1000;
+import java.util.Scanner;
+
+public class PA1b_v2 { //second version of PA1b, uses no %
+	public static void main(String[]args) {
+		Scanner input = new Scanner(System.in); //user input scanner
+		
+		System.out.printf("Number of inches: ");
+		int total = input.nextInt(); //defines user input as "total"
+		System.out.printf("Number of yards: %d ", total / 36);
+			//divides "total" into greatest number of yards and outputs whole yard number
+		int yards = (total / 36);
+			//defines variable yards as a number
+		int feetCalc = (total - (yards * 36));
+			//int feetCalc =  total inches - most yards possible out of total (total - yards and left with feet and inches)
+		int feet = (feetCalc / 12);
+		//takes inches without yards left  and / by 12 to get number of feet
+		int inches = feetCalc - (feet * 12);
+		//(int feetCalc = number of feet and inches)
+		//This line subtracts the total amount of feet from feetCalc, now leaving the # of inches
+		System.out.printf("Number of feet: %d ", feet);
+		//outputs whatever feet number int feet calculates too
+		System.out.printf("Number of inches: %d ", inches);
+		//outputs whatever number int inches is
+	}
+
+}
