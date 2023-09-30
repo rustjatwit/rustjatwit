@@ -227,66 +227,6 @@ public class PA2a {
         }
 	}
 
-//PA2b  (First code test)
-
-package edu.wit.cs.comp1000;
-import java.util.Scanner;
-
-// TODO: document this class - class name: PA2b
-public class PA2b {
-
-	// TODO: document this function
-	public static void main(String[] args) {
-		// TODO: write your code here
-		Scanner input = new Scanner(System.in);
-		System.out.printf("Calculating ax^2+bx=c%n");
-		System.out.printf("Enter value a: ");
-		int a = input.nextInt();
-		System.out.printf("Enter value b: ");
-		int b = input.nextInt();
-		System.out.printf("Enter value c: ");
-		int c = input.nextInt();
-		System.out.printf("%n");
-		
-		// calculating d=(b^2)-4ac
-		int d=((b*b)-(4*a*c));
-		
-		//if d<0 then roots are imaginary
-		//if d is 0 then there is 1 root: calculated through -b/2a
-		//if d>0 then squareroot d, then put that number in both +- the rest of the quadratic formula
-		if (d<0) {
-			System.out.printf("roots: imaginary%ncannot calculate");
-		}
-		if (d==0) {
-			System.out.printf("root: d= -b/2a %n");
-			double d0 = ((-b)/(2*a));
-			System.out.printf("root: %.2f ",d0);			
-		}
-		if (d>1) {
-			double square = Math.sqrt(d);
-			double root1 = ((-b + square)/(2*a));
-			double root2 = ((-b - square)/(2*a));
-			
-			//outputs the 2 roots in order from least to greatest value
-			if (root1<root2) {
-				System.out.printf("roots: %.2f, %.2f", root1, root2);
-			}
-			if (root1>root2 ) {
-				System.out.printf("roots: %.2f, %.2f", root2, root1);
-			}
-			//each variable d option has their own output system:
-			//d<0 then output "roots: imaginary"
-			//d=0 then output the one root option
-			//d>0 the output the two roots in order of least, great
-			
-		} 
-
-	}
-
-}
-
-
-
 //PA2a
 
 package edu.wit.cs.comp1000;
@@ -419,3 +359,64 @@ public class PA2a {
 
         }
 	}
+
+
+
+package edu.wit.cs.comp1000;
+import java.util.Scanner;
+
+// TODO: document this class - class name: PA2b
+public class PA2b {
+
+	// TODO: document this function
+	public static void main(String[] args) {
+		// TODO: write your code here
+		Scanner input = new Scanner(System.in);
+		System.out.printf("Enter a b c: ");
+		double a = input.nextDouble();
+		double b = input.nextDouble();
+		double c = input.nextDouble();
+		//System.out.printf("%n");
+		
+		// calculating d=(b^2)-4ac
+		double d=((b*b)-(4*a*c));
+		double d0 = 0;
+		//if d<0 then roots are imaginary
+		//if d is 0 then there is 1 root: calculated through -b/2a
+		//if d>0 then squareroot d, then put that number in both +- the rest of the quadratic formula
+		if (d<0) {
+			System.out.printf("Roots: imaginary%n");
+		}
+		else if (d==0) {
+			if (a==0) {
+				System.out.printf("Roots: imaginary%n");
+			}
+			else {
+				d0 = ((-b)/(2*a));
+				System.out.printf("Root: %.2f%n",d0);
+			}
+		}
+		else {
+			if (a==0) {
+				System.out.printf("Roots: imaginary%n");
+			}
+			else {
+				double square = Math.sqrt(d);
+				double root1 = ((-b + square)/(2*a));
+				double root2 = ((-b - square)/(2*a));
+				
+				//outputs the 2 roots in order from least to greatest value
+				if (root1<root2) {
+					System.out.printf("Roots: %.2f, %.2f%n", root1, root2);
+				}
+				if (root1>root2 ) {
+					System.out.printf("Roots: %.2f, %.2f%n", root2, root1);
+				}
+				//each variable d option has their own output system:
+				//d<0 then output "roots: imaginary"
+				//d=0 then output the one root option
+				//d>0 the output the two roots in order of least, great
+			}
+		}
+	}
+}
