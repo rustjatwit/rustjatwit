@@ -1,0 +1,347 @@
+//pA3a
+package edu.wit.cs.comp1000;
+
+import java.util.Scanner;
+
+//TODO: document this class
+public class PA3a {
+
+	// TODO: document this method
+	public static void main(String[] args) {
+		
+		Scanner input = new Scanner(System.in);
+		System.out.printf("Enter the length of side a: ");
+		double a = input.nextDouble();
+		System.out.printf("Enter the length of side b: ");
+		double b = input.nextDouble();
+		System.out.printf("Enter the length of side c: ");
+		double c = input.nextDouble();
+		
+		if ((a<=0)||(b<=0)||(c<0)) {
+			System.out.printf("Side lengths must all be positive%n");
+		}
+		else if (a+b<=c){
+			System.out.printf("Side c is too long%n");
+		}
+		else if (a+c<=b) {
+			System.out.printf("Side b is too long%n");
+		}
+		else if (b+c<=a) {
+			System.out.printf("Side a is too long%n");
+		}
+		
+		else {
+			double s = (a+b+c)/2.00;
+			double square = (s*(s-a)*(s-b)*(s-c));
+			double area = Math.sqrt(square);
+			System.out.printf("The area is %.2f%n",area);
+		}
+	}
+
+}
+
+//PA3b (third attempt) **CORRECT**
+package edu.wit.cs.comp1000;
+
+import java.util.Scanner;
+
+//TODO: document this class
+public class PA3b {
+
+	// TODO: document this method
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.printf("Enter your birth month (1-12): ");
+		int month = input.nextInt();
+		System.out.printf("Enter your birth day (1-31): ");
+		int day = input.nextInt();
+		if ((month>12)||(month<1)) {
+			System.out.printf("Month must be between 1 and 12!%n");
+		}
+		else if ((day>31)||(day<1)) {
+			System.out.printf("Day must be between 1 and 31!%n");
+		}
+		else {
+			//code for horoscope mathcing
+			if ( ((month==3)&&(day>=21)) || ((month==4)&&(day<=19)) ) {
+				System.out.printf("You are an Aries!%n");
+				System.out.printf("You will win the loterry%n");
+			}
+			else if ( ((month==4)&&(day>=20)) || ((month==5)&&(day<=20)) ) {
+				System.out.printf("You are a Taurus!%n");
+				System.out.printf("Someone you know is about to surprise you%n");
+			}
+			else if ( ((month==5)&&(day>=21)) || ((month==6)&&(day<=21)) ) {
+				System.out.printf("You are a Gemini!%n");
+				System.out.printf("Math will be your easiest class next semester%n");
+			}
+			else if ( ((month==6)&&(day>=22)) || ((month==7)&&(day<=22)) ) {
+				System.out.printf("You are a Cancer!%n");
+				System.out.printf("You will be bankrupt in your late 40's%n");
+			}
+			else if ( ((month==7)&&(day>=23)) || ((month==8)&&(day<=22)) ) {
+				System.out.printf("You are a Leo!%n");
+				System.out.printf("Go to the beach%n");
+			}
+			else if ( ((month==8)&&(day>=23)) || ((month==9)&&(day<=22)) ) {
+				System.out.printf("You are a Virgo!%n");
+				System.out.printf("You will become a fortune teller%n");
+			}
+			else if ( ((month==9)&&(day>=23)) || ((month==10)&&(day<=22)) ) {
+				System.out.printf("You are a Libra!%n");
+				System.out.printf("Slay%n");
+      		}
+			else if ( ((month==10)&&(day>=23)) || ((month==11)&&(day<=21)) ) {
+				System.out.printf("You are a Scorpio!%n");
+				System.out.printf("You are good at painting%n");
+			}
+			else if ( ((month==11)&&(day>=22)) || ((month==12)&&(day<=21)) ) {
+				System.out.printf("You are a Sagittarius!%n");
+				System.out.printf("Someone will invite you to travel soon%n");
+			}
+			else if ( ((month==12)&&(day>=22)) || ((month==1)&&(day<=19)) ) {
+				System.out.printf("You are a Capricorn!%n");
+				System.out.printf("Im running out of horoscopes%n");
+			}
+			else if ( ((month==1)&&(day>=20)) || ((month==2)&&(day<=18)) ) {
+				System.out.printf("You are an Aquarius!%n");
+				System.out.printf("The aquarium calls to you%n");
+			}
+			else {
+				System.out.printf("You are a Pisces!%n");
+				System.out.printf("You will go out with friends this week%n");
+			}
+		}
+			// separation
+	}
+}
+
+
+//PA3b (Second attempt but re-written)
+package edu.wit.cs.comp1000;
+
+import java.util.Scanner;
+
+//TODO: document this class
+public class PA3b {
+
+	// TODO: document this method
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.printf("Enter your birth month (1-12): ");
+		int month = input.nextInt();
+		System.out.printf("Enter your birth day (1-31): ");
+		int day = input.nextInt();
+		if ((month>12)||(month<1)) {
+			System.out.printf("Month must be between 1 and 12!");
+		}
+		if ((day>31)||(day<1)) {
+			System.out.printf("Day must be between 1 and 31!%n");
+		}
+		if ( ( ((month>=1)&&(month<=12)) && ((day>=1)&&(day<=31)) ) ) {
+			//code for horoscope mathcing
+			if ( ((month==3)&&(day>=21)) || ((month==4)&&(day<=19)) ) {
+				System.out.printf("You are an Aries!%n");
+			}
+			else if ( ((month==4)&&(day>=20)) || ((month==5)&&(day<=20)) ) {
+				System.out.printf("You are a Taurus!");
+			}
+			else if ( ((month==5)&&(day>=21)) || ((month==6)&&(day<=21)) ) {
+				System.out.printf("You are a Gemini!");
+			}
+			else if ( ((month==6)&&(day>=22)) || ((month==5)&&(day<=20)) ) {
+				System.out.printf("You are a Cancer!");
+			}
+			else if ( ((month==7)&&(day>=23)) || ((month==8)&&(day<=22)) ) {
+				System.out.printf("You are a Leo!%n");
+			}
+			else if ( ((month==8)&&(day>=23)) || ((month==9)&&(day<=22)) ) {
+				System.out.printf("You are a Virgo!");
+			}
+			else if ( ((month==9)&&(day>=23)) || ((month==10)&&(day<=22)) ) {
+				System.out.printf("You are a Libra!");
+      		}
+			else if ( ((month==10)&&(day>=23)) || ((month==11)&&(day<=21)) ) {
+				System.out.printf("You are a Scorpio!");
+			}
+			else if ( ((month==11)&&(day>=22)) || ((month==12)&&(day<=21)) ) {
+				System.out.printf("You are a Sagittarius!");
+			}
+			else if ( ((month==12)&&(day>=22)) || ((month==1)&&(day<=19)) ) {
+				System.out.printf("You are a Capricorn!");
+			}
+			else if ( ((month==1)&&(day>=20)) || ((month==2)&&(day<=18)) ) {
+				System.out.printf("You are an Aquarius!");
+			}
+			else {
+				System.out.printf("You are a Pisces!");
+			}
+		}
+			// separation
+	}
+}
+
+
+//PA3b (Second Attempt)
+package edu.wit.cs.comp1000;
+
+import java.util.Scanner;
+
+//TODO: document this class
+public class PA3b {
+
+	// TODO: document this method
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.printf("Enter your birth month (1-12): ");
+		int month = input.nextInt();
+		System.out.printf("Enter your birth day (1-31): ");
+		int day = input.nextInt();
+		if ((month>12)||(month<1)) {
+			System.out.printf("Month must be between 1 and 12!");
+		}
+		else if ((day>31)||(day<1)) {
+			System.out.printf("Day must be between 1 and 31!");
+		}
+		else {
+			//code for horoscope mathcing
+			if ( ((month==3)&&(day>=21)) || ((month==4)&&(day<=19)) ) {
+				System.out.printf("You are an Aries!");
+			}
+			else if ( ((month==4)&&(day>=20)) || ((month==5)&&(day<=20)) ) {
+				System.out.printf("You are a Taurus!");
+			}
+			else if ( ((month==5)&&(day>=21)) || ((month==6)&&(day<=21)) ) {
+				System.out.printf("You are a Gemini!");
+			}
+			else if ( ((month==6)&&(day>=22)) || ((month==5)&&(day<=20)) ) {
+				System.out.printf("You are a Cancer!");
+			}
+			else if ( ((month==7)&&(day>=23)) || ((month==8)&&(day<=22)) ) {
+				System.out.printf("You are a Leo!");
+			}
+			else if ( ((month==8)&&(day>=23)) || ((month==9)&&(day<=22)) ) {
+				System.out.printf("You are a Virgo!");
+			}
+			else if ( ((month==9)&&(day>=23)) || ((month==10)&&(day<=22)) ) {
+				System.out.printf("You are a Libra!");
+      		}
+			else if ( ((month==10)&&(day>=23)) || ((month==11)&&(day<=21)) ) {
+				System.out.printf("You are a Scorpio!");
+			}
+			else if ( ((month==11)&&(day>=22)) || ((month==12)&&(day<=21)) ) {
+				System.out.printf("You are a Sagittarius!");
+			}
+			else if ( ((month==12)&&(day>=22)) || ((month==1)&&(day<=19)) ) {
+				System.out.printf("You are a Capricorn!");
+			}
+			else if ( ((month==1)&&(day>=20)) || ((month==2)&&(day<=18)) ) {
+				System.out.printf("You are an Aquarius!");
+			}
+			else {
+				System.out.printf("You are a Pisces!");
+			}
+		}
+			// separation
+	}
+}
+
+//PA3b (First attempt)
+package edu.wit.cs.comp1000;
+
+import java.util.Scanner;
+
+//TODO: document this class
+public class PA3b {
+
+	// TODO: document this method
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.printf("Enter your birth month (1-12): ");
+		int month = input.nextInt();
+		System.out.printf("Enter your birth day (1-31): ");
+		int day = input.nextInt();
+		if ((month>12)||(month<1)) {
+			System.out.printf("Month must be between 1 and 12!");
+		}
+		else if ((day>31)||(day<1)) {
+			System.out.printf("Day must be between 1 and 31!");
+		}
+		else {
+			//code for horoscope mathcing
+			if ((month==3)&&(day>=21)) {
+				System.out.printf("You are an Aries!");
+			}
+			else if ((month==4)&&(day<=19)) {
+				System.out.printf("You are an Aries!");
+			}
+			else if ((month==4)&&(day>=20)) {
+				System.out.printf("You are a Taurus!");
+			}
+			else if ((month==5)&&(day<=20)) {
+				System.out.printf("You are a Taurus!");
+			}
+			else if ((month==5)&&(day>=21)) {
+				System.out.printf("You are a Gemini!");
+			}
+			else if ((month==6)&&(day<=21)) {
+				System.out.printf("You are a Gemini!");
+			}
+			else if ((month==6)&&(day>=22)) {
+				System.out.printf("You are a Cancer!");
+			}
+			else if ((month==7)&&(day<=22)) {
+				System.out.printf("You are a Cancer!");
+			}
+			else if ((month==7)&&(day>=23)) {
+				System.out.printf("You are a Leo!");
+			}
+			else if ((month==8)&&(day<=22)) {
+				System.out.printf("You are a Leo!");
+			}
+			else if ((month==8)&&(day>=23)) {
+				System.out.printf("You are a Virgo!");
+			}
+			else if ((month==9)&&(day<=22)) {
+				System.out.printf("You are a Virgo!");
+			}
+			else if ((month==9)&&(day>=23)) {
+				System.out.printf("You are a Libra!");
+			}
+			else if ((month==10)&&(day<=22)) {
+				System.out.printf("You are a Libra!");
+			}
+			else if ((month==10)&&(day>=23)) {
+				System.out.printf("You are a Scorpio!");
+			}
+			else if ((month==11)&&(day<=21)) {
+				System.out.printf("You are a Scorpio!");
+			}
+			else if ((month==11)&&(day>=22)) {
+				System.out.printf("You are a Sagittarius!");
+			}
+			else if ((month==12)&&(day<=21)) {
+				System.out.printf("You are a Sagittarius!");
+			}
+			else if ((month==12)&&(day>=22)) {
+				System.out.printf("You are a Capricorn!");
+			}
+			else if ((month==1)&&(day<=19)) {
+				System.out.printf("You are an Capricorn!");
+			}
+			else if ((month==1)&&(day>=20)) {
+				System.out.printf("You are an Aquarius!");
+			}
+			else if ((month==2)&&(day<=18)) {
+				System.out.printf("You are an Aquarius!");
+			}
+			else if ((month==2)&&(day>=19)) {
+				System.out.printf("You are a Pisces!");
+			}
+			else {
+				System.out.printf("You are a Pisces!");
+			}
+		}
+			// separation
+	}
+}
