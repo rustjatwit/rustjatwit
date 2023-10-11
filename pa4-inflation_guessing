@@ -1,0 +1,133 @@
+//PA4a
+
+package edu.wit.cs.comp1000;
+
+import java.util.Scanner;
+
+//TODO: document this class
+public class PA4a {
+
+	// TODO: document this method
+	public static void main(String[] args) {
+		//collecting variables
+		Scanner input = new Scanner(System.in);
+		System.out.printf("Enter the current price of the item: $");
+		double price = input.nextDouble();
+		System.out.printf("Enter the number of years: ");
+		int year = input.nextInt();
+		System.out.printf("Enter the inflation rate as a percentage: ");
+		double inflRate = input.nextDouble();
+		
+		//eliminating negatives
+		if (price<0) {
+			System.out.printf("The current price must be at least 0!%n");
+			System.exit(0);
+		}
+		if (year<0) {
+			System.out.printf("The number of years must be at least 0!%n");
+			System.exit(0);
+		}
+		if (inflRate<0) {
+			System.out.printf("The inflation rate must be at least 0!%n");
+			System.exit(0);
+		}
+		
+			inflRate = inflRate/100;
+			//double cost = price * (1.00 + inflRate);
+			double cost;
+			if (year ==0) {
+				System.out.printf("After %d years, the price will be $%.2f%n",year,price);
+			}
+		for(int i = 1; i <= year; i++){
+			cost = price * (1.00 + inflRate);
+			price = cost;
+			if (i == year) {
+				if (year == 1) {
+					System.out.printf("After %d year, the price will be $%.2f%n",year,cost);
+				}
+				else {
+					System.out.printf("After %d years, the price will be $%.2f%n",year,cost);
+				}
+			}
+		}
+
+	}
+
+}
+
+
+
+//PA4b
+
+package edu.wit.cs.comp1000;
+
+import java.util.Random;
+import java.util.Scanner;
+
+//TODO: document this class
+public class PA4b {
+
+	// TODO: document this method
+	public static void main(String[] args) {
+		
+		//////////////////////////////////////////////////////////////////////////////
+		// DO NOT CHANGE IN FINAL SUBMISSION
+		//////////////////////////////////////////////////////////////////////////////
+		
+		Long seed;
+		if (args.length != 1) {
+			seed = null; // you can temporarily change this to assist in debugging
+			             // the value must end in L, such as 1070L
+		} else {
+			seed = Long.valueOf(args[0]);
+		}
+		
+		// Gets a random number between 1 and 100
+		// Use the target variable as the correct answer for guessing
+		Random random;
+		if (seed == null) {
+			random = new Random();
+		} else {
+			random = new Random(seed);
+		}
+		int target = (Math.abs(random.nextInt()) % 100) + 1;
+		
+		//////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////
+		
+		// It might be useful to see the correct answer
+		// TODO: delete this line before attempting unit tests or submitting work
+	//	System.out.printf("%d%n", target);
+		
+		// TODO: write your code here	
+		Scanner input = new Scanner(System.in);
+		int guess;
+		boolean correctGuess = false;
+		while (!correctGuess) {
+			System.out.printf("Enter your guess (between 1 and 100): ");
+			guess = input.nextInt();
+			if ((guess>100)||(guess<1)) {
+				System.out.printf("Invalid guess, try again!%n");
+			}
+			else if (guess>target) {
+				System.out.printf("Too high!%n");
+			}
+			else if (guess<target) {
+				System.out.printf("Too low!%n");
+			}
+			else{
+				System.out.printf("You win!%n");
+				correctGuess = true;
+			}
+		}
+		System.exit(0);
+		/*
+		 * 	private final static String E_INVALID = "Invalid guess, try again!%n";
+	private final static String R_LOW = "Too low!%n";
+	private final static String R_HIGH = "Too high!%n";
+	private final static String R_WIN = "You win!%n";
+	private final static String PROMPT = "Enter your guess (between 1 and 100): ";
+		 */
+	}
+
+}
